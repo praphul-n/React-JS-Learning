@@ -1,0 +1,5 @@
+Is the Fetch API an ECMAScript feature ?
+----------------------------------------
+	Fetch is not an ECMAScript feature. It's part of the Web platform API. It provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses.  
+
+	Fetch is the modern way to perform AJAX when working with JavaScript. Instead of writing cumbersome AJAX code or using libraries such as jQuery and Angular, the new JavaScript standard offers a more compact, modern, and flexible syntax.
