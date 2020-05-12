@@ -104,5 +104,149 @@ let myObject = {
   console.log(shallowcopy) 
   console.log(deepcopy) 
   
+// Object Literal Enhancement
+
+const houseName = "Nangeelil",
+    street = "Villadom",
+    place = "Ramavarmapuram",
+    district1 = "Thrissur";
+
+const myAddress1 = {
+    houseName,
+    street,
+    place,
+    district1,
+
+    printHouseName() {
+        console.log(`My house name is ${this.houseName}`);
+    },
+};
+
+console.log(myAddress1);
+myAddress1.printHouseName();
+
+// END: Object Literal Enhancement
 
 
+// XMLHttpRequest
+
+function onResponse() {
+    var data = JSON.parse(this.responseText);
+    console.log(`Response from XHR call: ${data}`);
+  }
+  
+  function onError(error) {
+    console.log(error);
+  }
+  
+  var xhrRequest = new XMLHttpRequest();
+  xhrRequest.onload = onResponse;
+  xhrRequest.onerror = onError;
+  xhrRequest.open('get', 'https://randomuser.me/api/', true);
+  xhrRequest.send();
+  
+  // END: XMLHttpRequest
+  
+  
+  
+  // jQuery Ajax
+  
+  $.ajax("https://randomuser.me/api/")
+    .then(function (data) {
+      console.log(`Response from AJAX call: ${data}`);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  
+  // END: jQuery Ajax
+  
+  
+  
+  // Fetch API
+  
+  fetch("https://randomuser.me/api/")
+    .then((response) => {
+      if (response.status !== 200) {
+        throw new Error(`Request failed with status - ${response.status}`);
+      }
+  
+      // response is a stream
+      response.json().then((data) => {
+        console.log(`Response from Fetch call: ${data}`);
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  
+  // END: Fetch API
+  
+  
+  
+  // Async/Await
+  
+  const getRandomUser = async () => {
+    const response = await fetch("https://randomuser.me/api/");
+    const user = await response.json();
+    console.log(`Response from async fn: ${user}`);
+  }
+  getRandomUser();
+  
+  // END: Async/Await
+  
+
+    // OOP prior to ES6
+  
+    function PersonClass2(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+      }
+      
+      PersonClass2.prototype.print = function () {
+        console.log(
+          `{ firstName: "${this.firstName}", lastName: "${this.lastName}" }`
+        );
+      };
+      
+      const pn1 = new PersonClass2("praphul", "nangeelil");
+      pn1.print();
+      
+      // END: OOP prior to ES6
+      
+      
+      
+      // ES6 Classes
+      
+      class PersonClass1 {
+        constructor(firstName, lastName) {
+          this.firstName = firstName;
+          this.lastName = lastName;
+        }
+      
+        print() {
+          console.log(
+            `{ firstName: "${this.firstName}", lastName: "${this.lastName}" }`
+          );
+        }
+      }
+      
+      const pn2 = new PersonClass1("Praphul", "Nangeelil");
+      pn2.print();
+      
+      PersonClass1.prototype.greet = function () {
+        console.log(`Hey "${this.lastName}, ${this.firstName}"`);
+      };
+      pn2.greet();
+      
+      // END: Classes
+      
+      
+      
+      // ES6 Modules
+      
+    //   import { print } from "./modules/logger.js";
+    //   print("We are done for the day!");
+      
+      // END: ES6 Modules
+    
